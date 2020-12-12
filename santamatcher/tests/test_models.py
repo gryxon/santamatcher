@@ -30,13 +30,13 @@ def expected_match_request():
     person_4 = Person(name='Anna', communication_address='4')
     return MatchRequest(
         people=(person_1, person_2, person_3, person_4),
-        forbidden_matches=(
+        forbidden_matches=frozenset((
             MatchResult(giver=person_1, taker=person_3),
             MatchResult(giver=person_3, taker=person_1),
-        ),
-        required_matches=(
+        )),
+        required_matches=frozenset((
             MatchResult(giver=person_1, taker=person_2),
-        ),
+        )),
     )
 
 
