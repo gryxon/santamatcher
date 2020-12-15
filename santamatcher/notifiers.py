@@ -26,11 +26,11 @@ class Notifier(ABC):
 
 
 class SmsPushbulletNotifier(Notifier):
-    def __init__(self, token: str, device_id: int, poll_link: str, between_message_gap_interval: int = 0):
+    def __init__(self, token: str, device_id: int, poll_link: str, interval_gap_between_messages: int = 0):
         self.token = token
         self.device_id = device_id
         self.poll_link = poll_link
-        self.between_message_gap_interval = between_message_gap_interval
+        self.interval_gap_between_messages = interval_gap_between_messages
 
     def notify(self, match_results: Tuple[MatchResult, ...]):
         push_bullet_client = Pushbullet(self.token)
@@ -45,7 +45,7 @@ class SmsPushbulletNotifier(Notifier):
                     poll_link=self.poll_link,
                 )
             )
-            time.sleep(self.between_message_gap_interval)
+            time.sleep(self.interval_gap_between_messages)
 
 
 class MailNotifier(Notifier):
