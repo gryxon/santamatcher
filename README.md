@@ -59,14 +59,10 @@ optional arguments:
                         API token for pushbullet
   --pushbullet_device_id PUSHBULLET_DEVICE_ID, -pd PUSHBULLET_DEVICE_ID
                         Device id from which sms will be sent
-  --poll_link POLL_LINK, -pl POLL_LINK
-                        Link to the poll with confirmation
   --interval_gap_between_messages INTERVAL_GAP_BETWEEN_MESSAGES, -gi INTERVAL_GAP_BETWEEN_MESSAGE
                         Interval of gap between sent messages in seconds
 ```
 
-- `--poll_link` - Current implementation is in the immature version. If you want to use this tool, I advise you
-  create poll with list of people for final confirmation that nobody was omitted by an algorithm. 
 - `--interval_gap_between_messages` - if the interval will be too small, it's likely that your phone will block the
 stream of messages to send.
 

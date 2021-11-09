@@ -1,11 +1,12 @@
 from dataclasses import dataclass
-from typing import Tuple, FrozenSet
+from typing import Tuple, FrozenSet, Optional
 
 
 @dataclass(frozen=True, order=True)
 class Person:
     name: str
     communication_address: str
+    secret_identity: Optional[int]
 
 
 @dataclass(frozen=True, order=True)
@@ -23,7 +24,11 @@ class MatchRequest:
     @classmethod
     def from_dict(cls, data: dict) -> 'MatchRequest':
         people = tuple(
-            Person(name=person_data['name'], communication_address=person_data['communication_address'])
+            Person(
+                name=person_data['name'],
+                communication_address=person_data['communication_address'],
+                secret_identity=person_data['secret_identity'],
+            )
             for person_data in data['people']
         )
         name_to_people = {person.name: person for person in people}

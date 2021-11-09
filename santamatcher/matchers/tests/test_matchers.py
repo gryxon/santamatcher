@@ -37,7 +37,7 @@ def people_random_sampling_result_for_5_people_different_positions_variant_2():
 
 @pytest.mark.parametrize('people', (
     tuple(),
-    (Person(name='dummy_name', communication_address='communication_address'), )
+    (Person(name='dummy_name', communication_address='communication_address', secret_identity=0), )
 ))
 def test_match_should_raise_when_people_not_enough(people):
     with pytest.raises(NotEnoughPeople):
