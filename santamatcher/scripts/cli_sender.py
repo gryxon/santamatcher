@@ -1,7 +1,6 @@
 import json
 from argparse import ArgumentParser
 
-from santamatcher.identity_providers import add_secret_identities
 from santamatcher.matchers.matchers import match
 from santamatcher.models import MatchRequest
 from santamatcher.notifiers import SmsPushbulletNotifier
@@ -21,9 +20,7 @@ def main():
 
     args = parser.parse_args()
     with open(args.match_request) as file:
-        data = json.load(file)
-        add_secret_identities(data)
-        match_request = MatchRequest.from_dict(data)
+        match_request = MatchRequest.from_dict(json.load(file))
 
     match_results = match(
         people=match_request.people,

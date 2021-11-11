@@ -6,7 +6,6 @@ from typing import Tuple, FrozenSet, Optional
 class Person:
     name: str
     communication_address: str
-    secret_identity: Optional[int]
 
 
 @dataclass(frozen=True, order=True)
@@ -27,7 +26,6 @@ class MatchRequest:
             Person(
                 name=person_data['name'],
                 communication_address=person_data['communication_address'],
-                secret_identity=person_data['secret_identity'],
             )
             for person_data in data['people']
         )
