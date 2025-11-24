@@ -1,5 +1,5 @@
 from typing import Tuple, Iterable, FrozenSet
-from random import shuffle
+from random import sample
 
 from santamatcher.matchers.checkers import check_match_result
 from santamatcher.models import Person, MatchResult
